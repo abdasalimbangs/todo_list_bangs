@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <!-- ==========================================================================
+         Informations générales de la page
+         ========================================================================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Todo App | Gestionnaire de tâches</title>
+
+    <!-- ==========================================================================
+         Feuille de style principale
+         Cette feuille importe toutes les autres feuilles CSS du projet.
+         ========================================================================== -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <!-- ==========================================================================
+         Conteneur principal de l'application
+         Toutes les parties de notre Todo App seront placées ici.
+         ========================================================================== -->
+    <div class="app">
+
+        <!-- ===========================
+             Barre latérale
+             =========================== -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <h1>Todo.</h1>
+            </div>
+
+            <nav class="menu">
+
+                <a href="#">🏠 Accueil</a>
+
+                <a href="#">📅 Aujourd'hui</a>
+
+                <a href="#">⭐ Important</a>
+
+                <a href="#">✅ Terminées</a>
+
+            </nav>
+
+            <section class="projets">
+
+                <h2>Mes projets</h2>
+
+                <ul>
+
+                    <li>Travail</li>
+
+                    <li>Personnel</li>
+
+                    <li>Shopping</li>
+
+                </ul>
+
+            </section>
+
+        </aside>
+
+        <!-- ===========================
+             Contenu principal
+             =========================== -->
+        <main class="content">
+
+            <header class="header">
+
+                <div>
+
+                    <h2>Mes tâches</h2>
+
+                    <p>Organisez votre journée efficacement.</p>
+
+                </div>
+
+                <button>
+
+                    + Ajouter une tâche
+
+                </button>
+
+            </header>
+
+            <!-- Les cartes des tâches seront générées
+                 dynamiquement en JavaScript -->
+
+            <section class="task-list">
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- ==========================================================================
+         Fichier JavaScript principal
+         ========================================================================== -->
+    <script type="module" src="./js/app.js"></script>
+
+</body>
+
+</html>
