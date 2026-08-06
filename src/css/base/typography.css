@@ -1,0 +1,10 @@
+/* ==========================================================================
+   Fichier : typography.css
+   Description :
+   Gestion des polices et du texte.
+============================================================================= */
+body{
+    font-family:"Poppins",sans-serif;
+    color:var(--color-text);
+    line-height:1.6;
+}
