@@ -1,0 +1,68 @@
+/* ==========================================================================
+   Fichier : variables.css
+
+   Description :
+   Variables globales de l'application.
+
+   Responsabilités :
+   - Couleurs
+   - Espacements
+   - Bordures
+   - Ombres
+   - Transitions
+
+   ========================================================================== */
+
+   :root {
+
+        /* ===============================
+            Couleurs principales
+        ================================== */
+        --color-primary: #3b82f6;
+        --color-primary-hover: #2563eb;
+        --color-success: #22c55e;
+        --color-warning: #f59e0b;
+        --color-danger: #ef4444;
+        
+        /* ===============================
+            Texte
+        ================================== */
+        --color-text: #1f2937;
+        --color-text-light: #6b7280;
+
+        /* ===============================
+            Fond
+        ================================== */
+        --color-white: rgba(255,255,255,.78);
+        --color-border: rgba(255,255,255,.30);
+
+        /* ===============================
+            Glassmorphism
+        ================================== */
+        --blur: 18px;
+        --shadow: 0 8px 32px rgba(0,0,0,.18);
+
+        /* ===============================
+            Radius
+        ================================== */
+        --radius-sm:8px;
+        --radius-md:16px;
+        --radius-lg:24px;
+        --radius-xl:32px;
+
+        /* ===============================
+            Espacement
+        ================================== */
+        --space-1:4px;
+        --space-2:8px;
+        --space-3:12px;
+        --space-4:16px;
+        --space-5:24px;
+        --space-6:32px;
+        --space-7:48px;
+
+        /* ===============================
+            Transition
+        ================================== */
+
+    }
