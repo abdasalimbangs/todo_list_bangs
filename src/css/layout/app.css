@@ -1,0 +1,59 @@
+/* ==========================================================================
+   Fichier : app.css
+
+   Description :
+   Styles du conteneur principal de l'application.
+
+   Responsabilités :
+   - Image d'arrière-plan
+   - Centrage de l'application
+   - Disposition générale (Sidebar + Contenu)
+   - Effet Glassmorphism
+
+   Projet : Todo App
+============================================================================== */
+/* ==========================================================================
+   Corps de la page
+============================================================================= */
+
+body {
+    /* Image d'arrière-plan */
+    background: url("../../assets/images/backgrounde.jpg") center center / cover no-repeat fixed;
+
+    /* La page occupe toute la hauteur de la fenêtre */
+    min-width: 100vh;
+
+    /* Centre l'application horizontalement et verticalement */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Évite que l'application touche les bords sur les petits écrans */
+    padding: var(--space-6);
+}
+
+/* ==========================================================================
+    Conteneur principal
+============================================================================= */
+.app {
+    /* Largeur maximale de l'application */
+    width: min(1400px, 100%);
+
+    /* Hauteur de l'application */
+    height: 90vh;
+
+    /* Deux colonnes :
+       - Sidebar
+       - Contenu principal
+    */
+    display: grid;
+    grid-template-columns: 320px 1fr;
+
+    /* Glassmorphism */
+    background: var(--color-white);
+    /*backdrop-filter: blur(var(--blur));*/
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+}
