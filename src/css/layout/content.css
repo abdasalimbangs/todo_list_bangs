@@ -1,0 +1,42 @@
+/* ==========================================================================
+   Fichier : content.css
+
+   Description :
+   Styles de la zone principale de l'application.
+
+   Responsabilités :
+   - Organisation du contenu principal
+   - Espacement interne
+   - Gestion de la liste des tâches
+========================================================================== */
+.content {
+    /*
+     * La zone principale doit pouvoir contenir beaucoup de tâches.
+     * On utilise flex pour organiser verticalement l'en-tête et la liste.
+     */
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+
+    padding: var(--space-7);
+
+    /*
+     * Permet à la zone principale de gérer son propre défilement
+     * lorsque le nombre de tâches devient important.
+     */
+    overflow-y: auto;
+}
+
+/* ==========================================================================
+   Liste des tâches
+========================================================================== */
+
+.task-list {
+    /*
+     * La liste prendra l'espace disponible sous le header.
+     */
+    flex: 1;
+
+    margin-top: var(--space-6);
+}
