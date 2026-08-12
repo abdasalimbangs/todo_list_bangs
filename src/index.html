@@ -91,10 +91,51 @@
 
             </header>
 
-            <!-- Les cartes des tâches seront générées
-                 dynamiquement en JavaScript -->
+            <!-- Les cartes des tâches seront générées dynamiquement en JavaScript -->
 
             <section class="task-list">
+
+                <!--
+                    Cette carte est temporairement écrite en HTML uniquement
+                    afin de construire et tester son apparence.
+
+                    Plus tard, JavaScript générera automatiquement ces cartes
+                    à partir des données enregistrées dans LocalStorage.
+                -->
+                <article class="task-card">
+
+                    <div class="task-card__check">
+                        <input type="checkbox" id="task-1" >
+                        <label for="task-1"></label>
+                    </div>
+
+                    <div class="task-card__content">
+
+                        <div class="task-card__header">
+                            <h3>Apprendre JavaScript</h3>
+                            <span class="task-card__priority"> Haut </span>
+                        </div>
+
+                        <p class="task-card__description">
+                            Étudier les objets et les tableaux JavaScript.
+                        </p>
+
+                        <div class="task-card__meta">
+                            <span>📅 15 août</span>
+                            <span>⏱ 2h</span>
+                        </div>
+
+                    </div>
+
+                    <button
+                        class="task-card__menu"
+                        type="button"
+                        aria-label="Options de la tâche"
+                    >
+                        ⋮
+                    </button>
+
+                </article>
 
             </section>
 
