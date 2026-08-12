@@ -1,0 +1,129 @@
+/* ==========================================================================
+   Fichier : sidebar.css
+
+   Description :
+   Styles de la barre latérale de l'application.
+
+   Responsabilités :
+   - Logo
+   - Navigation principale
+   - Liste des projets
+   - Organisation verticale de la sidebar
+============================================================================= */
+.sidebar {
+    /*
+     * La sidebar occupe toute la hauteur du conteneur .app.
+     * Flex permet d'organiser facilement ses différentes zones
+     * verticalement.
+     */
+    display: flex;
+    flex-direction: column;
+
+    padding: var(--space-6);
+
+    /*
+     * Une séparation très légère permet de distinguer la sidebar
+     * du contenu sans casser l'effet glassmorphism.
+     */
+    border-right: 1px solid var(--color-border);
+
+    /*
+     * L'arrière-plan reste légèrement transparent afin de laisser
+     * apparaître l'image située derrière le conteneur.
+     */
+    background: rgba(255, 255, 255, 0.18);
+}
+
+/* ==========================================================================
+   Logo
+   ========================================================================== */
+
+.logo {
+    margin-bottom: var(--space-7);
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+}
+
+/* ==========================================================================
+   Navigation principale
+   ========================================================================== */
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.menu a {
+    display: flex;
+    align-items: center;
+
+    padding: 10px 12px;
+
+    border-radius: var(--radius-sm);
+
+    color: var(--color-text-light);
+
+    font-size: 0.9rem;
+    font-weight: 500;
+
+    transition: background var(--transition), color var(--transition);
+}
+
+/*
+ * Lorsque l'utilisateur passe la souris sur un élément du menu,
+ * nous améliorons légèrement son contraste.
+ */
+.menu a:hover {
+    background: rgba(255, 255, 255, 0.45);
+    color: var(--color-text);
+}
+
+/* ==========================================================================
+   Projets
+   ========================================================================== */
+
+.projets {
+    margin-top: var(--space-7);
+}
+
+.projets h2 {
+    margin-bottom: var(--space-3);
+
+    color: var(--color-text-light);
+
+    font-size: 0.75rem;
+    font-weight: 600;
+
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.projets ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.projets li {
+    padding: 8px 12px;
+
+    color: var(--color-text-light);
+
+    font-size: 0.9rem;
+
+    border-radius: var(--radius-sm);
+
+    cursor: pointer;
+
+    transition: background var(--transition), color var(--transition);
+}
+
+.projets li:hover {
+    background: rgba(255, 255, 255, 0.45);
+    color: var(--color-text);
+}
