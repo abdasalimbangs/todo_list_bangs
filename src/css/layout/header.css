@@ -1,0 +1,43 @@
+/* ==========================================================================
+   Fichier : header.css
+
+   Description :
+   Styles de l'en-tête de la zone principale.
+
+   Responsabilités :
+   - Titre
+   - Sous-titre
+   - Actions principales
+========================================================================== */
+.header {
+    /*
+     * Le titre reste à gauche et les actions à droite.
+     */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: var(--space-5);
+}
+/* ==========================================================================
+   Titre principal
+   ========================================================================== */
+
+.header h2 {
+    font-size: clamp(1.5rem, 2vw, 2rem);
+
+    font-weight: 600;
+
+    letter-spacing: -0.03em;
+}
+/* ==========================================================================
+   Sous-titre
+   ========================================================================== */
+
+.header p {
+    margin-top: var(--space-1);
+
+    color: var(--color-text-light);
+
+    font-size: 0.875rem;
+}
