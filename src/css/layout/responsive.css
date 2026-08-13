@@ -1,0 +1,162 @@
+/* ==========================================================================
+   Fichier : responsive.css
+
+   Description :
+   Adaptation de l'interface aux différentes tailles d'écran.
+
+   Stratégie :
+   - Desktop : sidebar + contenu
+   - Tablette : réduction des espacements
+   - Mobile : une seule colonne
+   ========================================================================== */
+
+
+/* ==========================================================================
+   Tablette
+========================================================================== */
+@media (max-width: 1024px) {
+
+    .app {
+        grid-template-columns: 240px 1fr;
+    }
+    .content {
+        padding: var(--space-6);
+    }
+    .sidebar {
+        padding: var(--space-5);
+    }
+
+}
+
+/* ==========================================================================
+   Mobile
+   ========================================================================== */
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 0;
+    }
+
+    .app {
+        /*
+         * Sur mobile, nous abandonnons les deux colonnes.
+         * Tout le contenu est maintenant organisé verticalement.
+         */
+        width: 100%;
+        height: 100vh;
+
+        grid-template-columns: 1fr;
+
+        border-radius: 0;
+    }
+
+    /*
+     * La sidebar devient une barre horizontale.
+     */
+    .sidebar {
+        flex-direction: row;
+        align-items: center;
+        gap: var(--space-4);
+        padding: var(--space-4);
+        border-right: none;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .logo {
+        margin-bottom: 0;
+    }
+
+    .logo h1 {
+        font-size: 1.4rem;
+    }
+
+    /*
+     * La navigation devient horizontale.
+     */
+    .menu {
+        flex-direction: row;
+
+        gap: var(--space-2);
+
+        overflow-x: auto;
+    }
+
+    .menu a {
+        flex-shrink: 0;
+
+        padding: 8px 10px;
+
+        font-size: 0.8rem;
+    }
+
+    /*
+     * Les projets seront temporairement masqués sur mobile.
+     *
+     * Nous créerons plus tard un véritable menu mobile permettant
+     * d'accéder aux projets sans surcharger l'interface.
+     */
+    .projets {
+        display: none;
+    }
+
+    /*
+     * Réduction des espaces internes.
+     */
+    .content {
+        padding: var(--space-5);
+    }
+
+    /*
+     * L'en-tête peut passer sur deux lignes si nécessaire.
+     */
+    .header {
+        align-items: flex-start;
+    }
+
+}
+
+
+/* ==========================================================================
+   Petit mobile
+   ========================================================================== */
+
+@media (max-width: 480px) {
+
+    .sidebar {
+        padding: var(--space-3);
+    }
+
+    .menu a {
+        font-size: 0.75rem;
+    }
+
+    .content {
+        padding: var(--space-4);
+    }
+
+    .header {
+        flex-direction: column;
+    }
+
+    .header button {
+        width: 100%;
+    }
+
+    .task-card {
+        padding: var(--space-3);
+    }
+
+    .task-card__header {
+        align-items: flex-start;
+    }
+
+    .task-card__priority {
+        font-size: 0.65rem;
+    }
+
+    .task-card__meta {
+        gap: var(--space-3);
+    }
+
+}
