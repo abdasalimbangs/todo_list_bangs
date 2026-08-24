@@ -7,6 +7,11 @@
    Convention :
    BEM (Block / Element / Modifier)
 ========================================================================== */
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
 .task-card {
     display: flex;
     align-items: flex-start;

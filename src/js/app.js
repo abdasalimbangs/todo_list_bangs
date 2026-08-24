@@ -29,28 +29,36 @@ const tasks =  [
         title: "Apprendre JavaScript",
         description: "Étudier les objets et les tableaux JavaScript.",
         status: "todo",
-        priority: "high"
+        priority: "high",
+        dueDate: "2026-08-15",
+        estimatedTime: "2h"
     },
     {
         id: "task-2",
         title: "Faire les exercices JavaScript",
         description: "Terminer les exercices du chapitre.",
         status: "in-progress",
-        priority: "medium"
+        priority: "medium",
+        dueDate: "2026-03-15",
+        estimatedTime: "3h"
     },
     {
         id: "task-3",
         title: "Faire le TP",
         description: "Réaliser le TP JavaScript.",
         status: "todo",
-        priority: "high"
+        priority: "high",
+        dueDate: "2026-09-15",
+        estimatedTime: "4h"
     },
     {
         id: "task-4",
         title: "Faire les exercices TP4",
         description: "Terminer les exercices du TP4.",
         status: "done",
-        priority: "low"
+        priority: "low",
+        dueDate: "2026-08-15",
+        estimatedTime: "5h"
     }
 ]
 
@@ -73,62 +81,94 @@ const taskList = document.querySelector('.task-list')
 
 function createTaskCard(task) {
 
-    // Creation de l'élément principal de la carte
+    // carte principale
     const taskCard = document.createElement("article");
-    taskCard.classList.add("task-card")
+    taskCard.classList.add('task-card');
+    taskCard.dataset.task = task.id ;
+    
+    // Checkbox
+    const checkContainer = document.createElement("div");
+    checkContainer.classList.add("task-card__check");
+    
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.id = task.id;
+    
+    const checkLable = document.createElement("label");
+    checkLable.htmlFor = task.id
+   
+    checkContainer.append(checkbox, checkLable)
 
-    /*
-     * ----------------------------------------------------------------------
-     * Identification de la tâche
-     * ----------------------------------------------------------------------
-     *
-     * Nous stockons l'identifiant de la tâche directement sur l'élément HTML.
-     *
-     * Cela nous permettra plus tard de retrouver facilement la tâche
-     * lorsque l'utilisateur voudra la modifier ou la supprimer.
-     * ----------------------------------------------------------------------
-    */
-    taskCard.dataset.taskId = task.id
-    console.log(taskCard)
-    // ----------------------------------------------------------------------
-    // Titre
-    // ----------------------------------------------------------------------
+    // Contenu
+    const contenu = document.createElement("div");
+    contenu.classList.add("task-card__content");
 
-    const taskTitle = document.createElement("h3")
-    taskTitle.textContent = task.title
+    // header
+    const header = document.createElement("div");
+    header.classList.add("task-card__header");
 
-    // ----------------------------------------------------------------------
+    const title = document.createElement("h3");
+    title.textContent = task.title
+    
+    const proprity = document.createElement("span");
+    proprity.classList.add("task-card__priority");
+
+    proprity.textContent = task.priority === "high"
+        ? "Haut"
+        : task.priority === "medium"
+            ? "Moyen"
+            : "Bas";
+    
+    header.append(title, proprity)
+    
+
     // Description
-    // ----------------------------------------------------------------------
+    const description = document.createElement("p");
+    description.classList.add("task-card__description");
+    description.textContent = task.description || "";
 
-    const taskDescription = document.createElement("p")
-    taskDescription.textContent = task.description
+    // Informations
+    const meta = document.createElement("div");
+    meta.classList.add("task-card__meta");
 
-    // ----------------------------------------------------------------------
-    // Statut
-    // ----------------------------------------------------------------------
+    const dueDate = document.createElement("span");
+    dueDate.textContent = task.dueDate
+        ? `📅 ${task.dueDate}`
+        : "";
 
-    const taskStatus = document.createElement("span")
-    taskStatus.textContent = task.status
+    const estimatedTime = document.createElement("span");
+    estimatedTime.textContent = task.estimatedTime
+        ? `⏱ ${task.estimatedTime}`
+        : "";
 
-     // ----------------------------------------------------------------------
-    // Priorité
-    // ----------------------------------------------------------------------
+    meta.append(dueDate, estimatedTime);
+    
 
-    const taskPriority = document.createElement("span");
-    taskPriority.textContent = task.priority;
+    // Assemblage du contenu
+    contenu.append(header, description, meta);
+    
+    // Bouton menu
+    const menu = document.createElement("button");
+    menu.classList.add("task-card__menu");
+    menu.type = "button";
+    menu.setAttribute("aria-label", "Options de la tâche");
+    menu.textContent = "⋮";
 
-    // ----------------------------------------------------------------------
-    // Assemblage de la carte
-    // ----------------------------------------------------------------------
-
+    // Assemblage final
     taskCard.append(
-        taskTitle,
-        taskDescription,
-        taskStatus,
-        taskPriority
-    )
-    return taskCard
+        checkContainer,
+        contenu,
+        menu
+    );
+
+    return taskCard;
+    
+    
+    
+    
+   
+    
+    
 }
 
 tasks.forEach((task) => {
