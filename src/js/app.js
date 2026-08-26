@@ -59,13 +59,32 @@ const tasks =  [
         priority: "low",
         dueDate: "2026-08-15",
         estimatedTime: "5h"
-    }
+    },
+    
 ]
 
 const taskList = document.querySelector('.task-list')
+console.log("1 - JS chargé");
 
+const addTaskButton = document.querySelector("#add-task-button");
 
+console.log("2 - bouton :", addTaskButton);
 
+addTaskButton.onclick = function () {
+    console.log("3 - CLIC !");
+};
+
+console.log("4 - événement installé");
+
+const rect = addTaskButton.getBoundingClientRect();
+
+console.log(
+    "Élément qui reçoit réellement le clic :",
+    document.elementFromPoint(
+        rect.left + 10,
+        rect.top + 10
+    )
+);
 /**
  * ==========================================================================
  * Création d'une carte de tâche
@@ -161,20 +180,59 @@ function createTaskCard(task) {
         menu
     );
 
-    return taskCard;
-    
-    
-    
-    
-   
-    
+    return taskCard; 
     
 }
 
-tasks.forEach((task) => {
-    const taskCard = createTaskCard(task)
-    taskList.append(taskCard)
-});
+/**
+ * ==========================================================================
+ * Création d'une nouvelle tâche
+ * ==========================================================================
+ *
+ * @param {string} title - Titre de la tâche
+ * @param {string} description - Description de la tâche
+ * @param {string} priority - Priorité de la tâche
+ * @returns {Object} La nouvelle tâche
+*/
+
+function addTask(title, description, prioprity) {
+    // creation de la nouvelle tache
+
+    const newTask = {
+        id: crypto.randomUUID(),
+        title: title,
+        description: description,
+        status: "todo",
+        prioprity: proprity,
+        dueDate: null,
+        estimatedTime: null
+    }
+
+    // Ajout de la tâche dans notre collection
+    tasks.push(newTask);
+
+    // Retourner la tâche créée
+    return newTask;
+}
+
+
+/* ==========================================================================
+ * Mise de jour de l'interface
+ * ==========================================================================*/
+function renderTasks() {
+    // Vider la liste avant de generer les cartes
+    taskList.innerHTML = "";
+
+    // Generer les cartes pour chaque tâche
+    tasks.forEach((task) => {
+
+        const taskCard = createTaskCard(task)
+        taskList.append(taskCard)
+    });
+}
+
+renderTasks();
+
 /*
 |--------------------------------------------------------------------------
 | Vérification
