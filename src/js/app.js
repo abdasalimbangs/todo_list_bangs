@@ -64,27 +64,13 @@ const tasks =  [
 ]
 
 const taskList = document.querySelector('.task-list')
-console.log("1 - JS chargé");
-
 const addTaskButton = document.querySelector("#add-task-button");
 
-console.log("2 - bouton :", addTaskButton);
+console.log("Bouton trouvé :", addTaskButton);
 
-addTaskButton.onclick = function () {
-    console.log("3 - CLIC !");
-};
-
-console.log("4 - événement installé");
-
-const rect = addTaskButton.getBoundingClientRect();
-
-console.log(
-    "Élément qui reçoit réellement le clic :",
-    document.elementFromPoint(
-        rect.left + 10,
-        rect.top + 10
-    )
-);
+addTaskButton.addEventListener("click", function () {
+    console.log("🔥 CLIC DÉTECTÉ !");
+});
 /**
  * ==========================================================================
  * Création d'une carte de tâche
@@ -203,7 +189,7 @@ function addTask(title, description, prioprity) {
         title: title,
         description: description,
         status: "todo",
-        prioprity: proprity,
+        prioprity: prioprity,
         dueDate: null,
         estimatedTime: null
     }
@@ -233,6 +219,9 @@ function renderTasks() {
 
 renderTasks();
 
+
+     
+
 /*
 |--------------------------------------------------------------------------
 | Vérification
@@ -242,6 +231,8 @@ renderTasks();
 | de vérifier que JavaScript a correctement créé notre donnée.
 |
 */
+
+
 
 
 
