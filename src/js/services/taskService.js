@@ -29,7 +29,7 @@ import { createTask } from "../models/task";
  * @returns {Object} La tâche créée
 */
 
-export function addTask(tasks, title, description, prioprity) {
+export function addTask(tasks, title, description, priority) {
     
     // Créer la nouvelle tâche grâce au modèle Task
     const newTask = createTask(

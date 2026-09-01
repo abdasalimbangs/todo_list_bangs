@@ -23,13 +23,13 @@
  * @param {string} priority - Priorité de la tâche
  * @returns {Object} Une nouvelle tâche
 */
-export function createTask(title, description='', prioprity = "medium"){
+export function createTask(title, description='', priority = "medium"){
     return {
         id: crypto.randomUUID(),
         title : title,
         description: description,
         status: "todo",
-        prioprity: prioprity,
+        priority: prioprity,
         dueDate: null,
         reminder: null,
         attachment: null,
