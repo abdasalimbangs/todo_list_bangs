@@ -1,0 +1,183 @@
+/* ==========================================================================
+   MODAL
+========================================================================== */
+
+/* Fond du modal */
+#task-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+
+    /* Fond sombre transparent */
+    background: rgba(0, 0, 0, 0.45);
+
+    /* Flou de l'arrière-plan */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    /* Centrage du contenu */
+    align-items: center;
+    justify-content: center;
+
+    /* Au-dessus de toute l'application */
+    z-index: 1000;
+
+    padding: 20px;
+}
+
+/* Modal visible */
+#task-modal.is-visible {
+    display: flex;
+}
+
+/* ==========================================================================
+   CONTENU DU MODAL
+========================================================================== */
+
+.modal__content {
+    width: 100%;
+    max-width: 700px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+
+    overflow: hidden;
+}
+
+
+/* ==========================================================================
+   HEADER
+========================================================================== */
+
+.modal__header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 25px 30px 15px;
+}
+
+
+.modal__header h2 {
+    margin: 0;
+
+    font-size: 26px;
+}
+
+
+/* Bouton X */
+#close-modal-button {
+    border: none;
+
+    background: transparent;
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+    line-height: 1;
+}
+
+
+/* ==========================================================================
+   FORMULAIRE
+========================================================================== */
+
+#task-form {
+    padding: 10px 30px 30px;
+}
+
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-weight: 500;
+}
+
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 12px 14px;
+
+    border: 1px solid #d5d5d5;
+
+    border-radius: 8px;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+
+.form-group textarea {
+    min-height: 100px;
+
+    resize: vertical;
+}
+
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #3478f6;
+}
+
+
+/* ==========================================================================
+   BOUTONS
+========================================================================== */
+
+.modal__actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+
+.modal__actions button {
+    padding: 12px 20px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+
+#cancel-modal-button {
+    background: #eeeeee;
+}
+
+
+.modal__actions button[type="submit"] {
+    background: #3478f6;
+
+    color: white;
+}

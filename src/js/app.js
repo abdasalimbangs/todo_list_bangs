@@ -1,3 +1,4 @@
+import { openModal,closeModal } from "./ui/modal.js";
 /* ==========================================================================
    Fichier : app.js
 
@@ -66,10 +67,8 @@ const tasks =  [
 const taskList = document.querySelector('.task-list')
 const addTaskButton = document.querySelector("#add-task-button");
 
-console.log("Bouton trouvé :", addTaskButton);
-
-addTaskButton.addEventListener("click", function () {
-    console.log("🔥 CLIC DÉTECTÉ !");
+addTaskButton.addEventListener("click", () => {
+    openModal();
 });
 /**
  * ==========================================================================
