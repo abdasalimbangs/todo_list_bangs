@@ -1,4 +1,5 @@
 import { openModal,closeModal } from "./ui/modal.js";
+import { addTask } from "./services/taskService.js";
 /* ==========================================================================
    Fichier : app.js
 
@@ -23,53 +24,9 @@ import { openModal,closeModal } from "./ui/modal.js";
 | dynamique des cartes.
 |
 */
-
-const tasks =  [
-    {
-        id: "task-1",
-        title: "Apprendre JavaScript",
-        description: "Étudier les objets et les tableaux JavaScript.",
-        status: "todo",
-        priority: "high",
-        dueDate: "2026-08-15",
-        estimatedTime: "2h"
-    },
-    {
-        id: "task-2",
-        title: "Faire les exercices JavaScript",
-        description: "Terminer les exercices du chapitre.",
-        status: "in-progress",
-        priority: "medium",
-        dueDate: "2026-03-15",
-        estimatedTime: "3h"
-    },
-    {
-        id: "task-3",
-        title: "Faire le TP",
-        description: "Réaliser le TP JavaScript.",
-        status: "todo",
-        priority: "high",
-        dueDate: "2026-09-15",
-        estimatedTime: "4h"
-    },
-    {
-        id: "task-4",
-        title: "Faire les exercices TP4",
-        description: "Terminer les exercices du TP4.",
-        status: "done",
-        priority: "low",
-        dueDate: "2026-08-15",
-        estimatedTime: "5h"
-    },
-    
-]
-
 const taskList = document.querySelector('.task-list')
 const addTaskButton = document.querySelector("#add-task-button");
 
-addTaskButton.addEventListener("click", () => {
-    openModal();
-});
 /**
  * ==========================================================================
  * Création d'une carte de tâche
@@ -179,27 +136,12 @@ function createTaskCard(task) {
  * @param {string} priority - Priorité de la tâche
  * @returns {Object} La nouvelle tâche
 */
-
-function addTask(title, description, prioprity) {
-    // creation de la nouvelle tache
-
-    const newTask = {
-        id: crypto.randomUUID(),
-        title: title,
-        description: description,
-        status: "todo",
-        prioprity: prioprity,
-        dueDate: null,
-        estimatedTime: null
-    }
-
-    // Ajout de la tâche dans notre collection
-    tasks.push(newTask);
-
-    // Retourner la tâche créée
-    return newTask;
-}
-
+const newTask = addTask(
+    tasks,
+    title,
+    description,
+    priority
+);
 
 /* ==========================================================================
  * Mise de jour de l'interface
@@ -231,7 +173,9 @@ renderTasks();
 |
 */
 
-
+addTaskButton.addEventListener("click", () => {
+    openModal();
+});
 
 
 
