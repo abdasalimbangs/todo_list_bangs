@@ -17,7 +17,7 @@
    - de l'affichage
    - des événements utilisateur
 ============================================================================== */
-import { createTask } from "../models/task";
+import { createTask } from "../models/task.js";
 
 /**
  * Ajoute une nouvelle tâche à une collection.
@@ -35,7 +35,7 @@ export function addTask(tasks, title, description, priority) {
     const newTask = createTask(
         title,
         description,
-        prioprity
+        priority
     );
 
     // Ajouter la tâche a notre collection

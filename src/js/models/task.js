@@ -29,7 +29,7 @@ export function createTask(title, description='', priority = "medium"){
         title : title,
         description: description,
         status: "todo",
-        priority: prioprity,
+        priority: priority,
         dueDate: null,
         reminder: null,
         attachment: null,
