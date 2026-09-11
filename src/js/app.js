@@ -81,7 +81,7 @@ taskForm.addEventListener("submit", (event)=> {
     console.log("Nouvelle tâche :", newTask);
 
     // Réafficher les tâches
-    renderTasks();
+    renderTasks(taskList,tasks);
 
     // Réinitialiser le formulaire
     taskForm.reset();
