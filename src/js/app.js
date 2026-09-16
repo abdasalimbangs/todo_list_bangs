@@ -1,5 +1,5 @@
 import { openModal,closeModal } from "./ui/modal.js";
-import {createTaskCard, renderTasks} from "./ui/taskList.js";
+import { renderTasks} from "./ui/taskList.js";
 import { addTask } from "./services/taskService.js";
 
 // Collection des tâches
