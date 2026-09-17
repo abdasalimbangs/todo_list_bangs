@@ -1,9 +1,10 @@
 import { openModal,closeModal } from "./ui/modal.js";
 import { renderTasks} from "./ui/taskList.js";
 import { addTask } from "./services/taskService.js";
+import { saveTasks, getTasks } from "./services/storageService.js";
 
 // Collection des tâches
-const tasks = [
+//const tasks = [
     {
         id: "task-1",
         title: "Apprendre le JS",
@@ -39,7 +40,9 @@ const tasks = [
         attachment: null,
         estimatedTime: null
     }
-];
+//];
+// Reperation des tâches depuis le localStorage
+const tasks = getTasks()
     
 const taskList = document.querySelector('.task-list')
 const addTaskButton = document.querySelector("#add-task-button");
@@ -78,6 +81,9 @@ taskForm.addEventListener("submit", (event)=> {
         description,
         priority
     )
+    // Sauvegarde de la tâche dans localStorage
+    saveTasks(tasks);
+
     console.log("Nouvelle tâche :", newTask);
 
     // Réafficher les tâches
