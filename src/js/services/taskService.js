@@ -44,3 +44,20 @@ export function addTask(tasks, title, description, priority) {
     // Retourne la tâche créer
     return newTask;
 }
+
+// création de la fonction  pour supprimer une tache
+// qui prendre l'entrer liste des taches et ID de la tache à supprimer
+
+export function removeTask(tasks, taskId) {
+    
+    // Recherche de l'index de l'object tache
+    const index = tasks.findIndex(task => task.id === taskId);
+    
+    // Verifions que l'index n'existe 
+    if (index !== -1) {
+        //Supprime la tache 
+        tasks.splice(index, 1);
+    }
+
+    return tasks ;
+}

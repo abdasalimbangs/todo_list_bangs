@@ -9,8 +9,15 @@ export function saveTasks(tasks) {
 export function getTasks() {
 
     const jsonTasks = localStorage.getItem("task");
-    const resultat = JSON.parse(jsonTasks)
 
-    return resultat ;
+    if ( jsonTasks !== null) {
+
+        const resultat = JSON.parse(jsonTasks);
+        return resultat;
+
+    }else {
+        return [];
+    }
+   
     
 }

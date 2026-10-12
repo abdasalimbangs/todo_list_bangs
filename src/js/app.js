@@ -1,46 +1,10 @@
+
 import { openModal,closeModal } from "./ui/modal.js";
 import { renderTasks} from "./ui/taskList.js";
 import { addTask } from "./services/taskService.js";
 import { saveTasks, getTasks } from "./services/storageService.js";
 
 // Collection des tâches
-//const tasks = [
-    {
-        id: "task-1",
-        title: "Apprendre le JS",
-        description: "Introduction au JS",
-        status: "todo",
-        priority: "medium",
-        dueDate: null,
-        reminder: null,
-        attachment: null,
-        estimatedTime: null
-    },
-
-    {
-        id: "task-2",
-        title: "Apprendre le Laravel",
-        description: "Introduction au Laravel",
-        status: "in-progress",
-        priority: "low",
-        dueDate: null,
-        reminder: null,
-        attachment: null,
-        estimatedTime: null
-    },
-
-    {
-        id: "task-3",
-        title: "Apprendre le Python",
-        description: "Introduction au Python",
-        status: "done",
-        priority: "high",
-        dueDate: null,
-        reminder: null,
-        attachment: null,
-        estimatedTime: null
-    }
-//];
 // Reperation des tâches depuis le localStorage
 const tasks = getTasks()
     
@@ -48,7 +12,8 @@ const taskList = document.querySelector('.task-list')
 const addTaskButton = document.querySelector("#add-task-button");
 const taskForm = document.querySelector("#task-form");
 
-
+// Réafficher les tâches
+renderTasks(taskList,tasks);
 
 /*
 |--------------------------------------------------------------------------
@@ -81,14 +46,13 @@ taskForm.addEventListener("submit", (event)=> {
         description,
         priority
     )
+
     // Sauvegarde de la tâche dans localStorage
     saveTasks(tasks);
 
-    console.log("Nouvelle tâche :", newTask);
-
-    // Réafficher les tâches
-    renderTasks(taskList,tasks);
-
+    //actualiser la page pour afficher les taches
+    renderTasks(taskList, tasks)
+    
     // Réinitialiser le formulaire
     taskForm.reset();
 
@@ -96,6 +60,7 @@ taskForm.addEventListener("submit", (event)=> {
     closeModal();
 
 });
+
 
 
 

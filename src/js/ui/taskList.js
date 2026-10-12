@@ -86,6 +86,14 @@ export function createTaskCard(task) {
     menu.setAttribute("aria-label", "Options de la tâche");
     menu.textContent = "⋮";
 
+    menu.addEventListener("click", ()=>{
+      const getCard = menu.closest(".task-card");
+      const ID = getCard.dataset.task;
+       console.log("ID de la tâche :", ID);
+      
+      
+    });
+
     // Assemblage final
     taskCard.append(
         checkContainer,
@@ -96,6 +104,7 @@ export function createTaskCard(task) {
     return taskCard; 
     
 }
+
 
 /* ==========================================================================
  * Mise de jour de l'interface
