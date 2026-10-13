@@ -11,7 +11,7 @@
  * ==========================================================================
  */
 
-export function createTaskCard(task) {
+export function createTaskCard(task, onMenuClick) {
 
     // carte principale
     const taskCard = document.createElement("article");
@@ -89,7 +89,7 @@ export function createTaskCard(task) {
     menu.addEventListener("click", ()=>{
       const getCard = menu.closest(".task-card");
       const ID = getCard.dataset.task;
-       console.log("ID de la tâche :", ID);
+      onMenuClick(ID);
       
       
     });
@@ -110,14 +110,14 @@ export function createTaskCard(task) {
  * Mise de jour de l'interface
  * ==========================================================================*/
 
-export function renderTasks(taskList, tasks) {
+export function renderTasks(taskList, tasks, onMenuClick) {
     // Vider la liste avant de generer les cartes
     taskList.innerHTML = "";
 
     // Generer les cartes pour chaque tâche
     tasks.forEach((task) => {
 
-        const taskCard = createTaskCard(task)
+        const taskCard = createTaskCard(task, onMenuClick)
         taskList.append(taskCard)
     });
 }

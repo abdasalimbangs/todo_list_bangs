@@ -1,7 +1,7 @@
 
 import { openModal,closeModal } from "./ui/modal.js";
 import { renderTasks} from "./ui/taskList.js";
-import { addTask } from "./services/taskService.js";
+import { addTask, renderTasks} from "./services/taskService.js";
 import { saveTasks, getTasks } from "./services/storageService.js";
 
 // Collection des tâches
@@ -13,7 +13,7 @@ const addTaskButton = document.querySelector("#add-task-button");
 const taskForm = document.querySelector("#task-form");
 
 // Réafficher les tâches
-renderTasks(taskList,tasks);
+renderTasks(taskList,tasks, onMenuClick(ID));
 
 /*
 |--------------------------------------------------------------------------
@@ -51,7 +51,7 @@ taskForm.addEventListener("submit", (event)=> {
     saveTasks(tasks);
 
     //actualiser la page pour afficher les taches
-    renderTasks(taskList, tasks)
+    renderTasks(taskList, tasks, onMenuClick(ID))
     
     // Réinitialiser le formulaire
     taskForm.reset();
