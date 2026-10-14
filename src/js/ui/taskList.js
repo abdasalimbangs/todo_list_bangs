@@ -84,7 +84,7 @@ export function createTaskCard(task, onMenuClick) {
     menu.classList.add("task-card__menu");
     menu.type = "button";
     menu.setAttribute("aria-label", "Options de la tâche");
-    menu.textContent = "⋮";
+    menu.textContent = "🗑️";
 
     menu.addEventListener("click", ()=>{
       const getCard = menu.closest(".task-card");
